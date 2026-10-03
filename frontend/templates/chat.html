@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Chat with AI{% endblock %}
+{% block crumb %}Chat with AI{% endblock %}
+
+{% block content %}
+<div class="card chat-card">
+  <div class="card-head chat-head">
+    <div>
+      <h2>Chat with Behind the Mind</h2>
+      <p class="muted">I'm here to listen. What's on your mind?</p>
+    </div>
+    <span class="pill pill-online"><span class="dot dot-green"></span> AI Mental Health Support</span>
+  </div>
+
+  <div id="chatWindow" class="chat-window" aria-live="polite"></div>
+
+  <div class="chat-input">
+    <input id="chatInput" type="text" placeholder="Type your message here…" autocomplete="off" />
+    <button id="chatSend" class="btn btn-primary" type="button" aria-label="Send">➤</button>
+  </div>
+  <p class="disclaimer">
+    Behind the Mind is not a crisis service. If you are in immediate danger, call your local emergency number.
+  </p>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>window.BTM_PAGE = 'chat';</script>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}WhatsApp Support{% endblock %}
+{% block crumb %}WhatsApp Support{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="card-head">
+    <h2>Chat on WhatsApp</h2>
+    <p class="muted">Continue the same conversation from your phone.</p>
+  </div>
+
+  {% if whatsapp_number %}
+    <p>
+      Tap below to open WhatsApp and send a message. Your Twilio webhook
+      (<code>/whatsapp_ask</code>) will route it to the same AI agent.
+    </p>
+    <a class="btn btn-primary btn-lg"
+       href="https://wa.me/{{ whatsapp_number }}?text={{ 'Hi%2C%20I%27d%20like%20to%20talk%20to%20Behind%20the%20Mind.' }}"
+       target="_blank" rel="noopener">
+      💬 Open WhatsApp Chat
+    </a>
+  {% else %}
+    <div class="empty">
+      WhatsApp number is not configured on this server.<br/>
+      Set the environment variable <code>WHATSAPP_NUMBER</code> (E.164 without “+”)
+      when starting the Flask app, e.g.<br/>
+      <code>WHATSAPP_NUMBER=14155238886 python app.py</code>
+    </div>
+  {% endif %}
+
+  <hr class="sep"/>
+
+  <h3>How it works</h3>
+  <ol class="steps">
+    <li>Twilio receives your WhatsApp message.</li>
+    <li>Twilio forwards it to <code>POST /whatsapp_ask</code> on your FastAPI backend.</li>
+    <li>The same LangGraph agent replies with a TwiML <code>&lt;Message&gt;</code>.</li>
+  </ol>
+</div>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block crumb %}Home{% endblock %}
+
+{% block content %}
+<div class="hero">
+  <div class="hero-copy">
+    <p class="quote">“A brighter mind leads to a brighter you.”</p>
+    <h1 class="hero-title">Behind the Mind</h1>
+    <p class="hero-tag">AI-Powered Mental Health Support</p>
+    <p class="hero-desc">
+      A safe space to talk, reflect and feel heard.<br/>
+      You don’t have to figure everything out alone.
+    </p>
+    <a href="/chat" class="btn btn-primary btn-lg">Start a Conversation →</a>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <svg viewBox="0 0 420 300" width="100%" height="100%">
+      <defs>
+        <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#e9e4ff"/>
+          <stop offset="1" stop-color="#fdf4ec"/>
+        </linearGradient>
+      </defs>
+      <rect width="420" height="300" rx="24" fill="url(#g1)"/>
+      <circle cx="300" cy="110" r="42" fill="#ffd9a8" opacity="0.85"/>
+      <path d="M0 230 Q90 180 180 220 T420 210 V300 H0 Z" fill="#c9b8ff" opacity="0.55"/>
+      <path d="M0 260 Q120 220 240 255 T420 250 V300 H0 Z" fill="#8f7dff" opacity="0.55"/>
+    </svg>
+  </div>
+</div>
+
+<div class="card mood-card">
+  <div class="card-head">
+    <h2>How are you feeling today?</h2>
+  </div>
+  <div class="mood-grid" id="moodGrid">
+    <button class="mood" data-msg="I'm feeling stressed.">
+      <span class="mood-emoji">😟</span><span>I'm feeling stressed</span>
+    </button>
+    <button class="mood" data-msg="I'm feeling anxious.">
+      <span class="mood-emoji">😰</span><span>I'm feeling anxious</span>
+    </button>
+    <button class="mood" data-msg="I'm feeling low.">
+      <span class="mood-emoji">😔</span><span>I'm feeling low</span>
+    </button>
+    <button class="mood" data-msg="I'm having trouble sleeping.">
+      <span class="mood-emoji">🌙</span><span>I'm having trouble sleeping</span>
+    </button>
+    <button class="mood" data-msg="I just want to talk.">
+      <span class="mood-emoji">🙂</span><span>I just want to talk</span>
+    </button>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  // Clicking a mood chip sends the user to chat with a prefilled message.
+  document.querySelectorAll('#moodGrid .mood').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const msg = btn.dataset.msg;
+      sessionStorage.setItem('btm_prefill', msg);
+      window.location.href = '/chat';
+    });
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}About{% endblock %}
+{% block crumb %}About{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="card-head">
+    <h2>About Behind the Mind</h2>
+  </div>
+  <p>
+    Behind the Mind is an AI-powered mental health companion that combines a calm
+    chat interface with an LLM-driven agent that can call tools: a therapeutic
+    MedGemma-based responder, a location-aware therapist finder (Google Maps),
+    and an emergency voice-call tool (Twilio).
+  </p>
+
+  <h3>What this app is</h3>
+  <ul class="bullets">
+    <li>A safe, judgement-free space to talk.</li>
+    <li>A demo of tool-using AI agents for wellbeing support.</li>
+    <li>An integration showcase: FastAPI + LangGraph + Groq + Google Maps + Twilio.</li>
+  </ul>
+
+  <h3>What this app is not</h3>
+  <ul class="bullets">
+    <li>Not a substitute for professional mental-health care.</li>
+    <li>Not a crisis or emergency service.</li>
+    <li>Not a diagnostic tool.</li>
+  </ul>
+
+  <div class="emergency-note">
+    <h4>If you are in immediate danger</h4>
+    <p>Please contact your local emergency number or a crisis hotline in your region right away.</p>
+  </div>
+</div>
+{% endblock %}

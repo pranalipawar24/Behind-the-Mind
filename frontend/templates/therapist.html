@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Find a Therapist{% endblock %}
+{% block crumb %}Find a Therapist{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="card-head">
+    <h2>Find Professional Help</h2>
+    <p class="muted">Search for nearby mental-health professionals in your area.</p>
+  </div>
+
+  <form id="therapistForm" class="search-row" autocomplete="off">
+    <span class="search-ico">📍</span>
+    <input id="therapistLocation" type="text" placeholder="e.g. Pune, Mumbai, Delhi" required />
+    <button class="btn btn-primary" type="submit">Search Therapists</button>
+  </form>
+
+  <div id="therapistResults" class="therapist-results">
+    <div class="empty">Enter a location and search to see real results from your backend.</div>
+  </div>
+
+  <p class="disclaimer">
+    Results come from your FastAPI backend's <code>find_nearby_therapists_by_location</code> tool
+    (Google Maps). Live results require a Google Maps billing-enabled project.
+  </p>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>window.BTM_PAGE = 'therapist';</script>
+{% endblock %}

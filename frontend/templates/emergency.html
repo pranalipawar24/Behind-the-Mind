@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Emergency Support{% endblock %}
+{% block crumb %}Emergency Support{% endblock %}
+
+{% block content %}
+<div class="card emergency-card">
+  <div class="emergency-head">
+    <div class="emergency-icon">⚠️</div>
+    <div>
+      <h2>Need Immediate Help?</h2>
+      <p class="muted">If you or someone else is in immediate danger, please seek emergency assistance.</p>
+    </div>
+  </div>
+
+  <div class="emergency-body">
+    <h3>Emergency Support</h3>
+    <p>
+      Clicking the button below will ask the AI agent to trigger the
+      <code>emergency_call_tool</code> on your backend, which initiates a
+      Twilio voice call to your configured helpline number.
+    </p>
+    <button id="emergencyBtn" class="btn btn-danger btn-lg" type="button">
+      📞 Call for Emergency Support
+    </button>
+    <div id="emergencyStatus" class="emergency-status" aria-live="polite"></div>
+  </div>
+
+  <div class="emergency-note">
+    <h4>⚠️ Important</h4>
+    <ul>
+      <li>This feature should only be used in real emergency situations.</li>
+      <li>If you are in immediate danger, you can also call your local emergency number (e.g., 112 in India).</li>
+      <li>Your safety is important. Please reach out for help when needed.</li>
+    </ul>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>window.BTM_PAGE = 'emergency';</script>
+{% endblock %}
