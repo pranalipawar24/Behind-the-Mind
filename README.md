@@ -154,7 +154,7 @@ Behind the Mind is intended for general emotional support and educational purpos
 
 It is not a replacement for a licensed psychologist, psychiatrist, counselor, doctor, or emergency service.
 
-If someone is in immediate danger or experiencing an emergency, contact the appropriate local emergency service or a 
+If someone is in immediate danger or experiencing an emergency, contact the appropriate local emergency service or a qualified professional.
 
 ---
 
